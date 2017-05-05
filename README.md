@@ -1,0 +1,109 @@
+# Idy
+
+[![Build Status](https://travis-ci.org/wbotelhos/idy.svg)](https://travis-ci.org/wbotelhos/idy)
+[![Gem Version](https://badge.fury.io/rb/idy.svg)](https://badge.fury.io/rb/idy)
+
+An ID obfuscator for ActiveRecord.
+
+## Description
+
+Do not let your users knows about your IDs:
+
+- IDs can make hacker's life easier for a sequential attack;
+- IDs can make crawler's life easier for a sequential scan;
+- With few records on your database it can seem that your business is weak;
+- With many records on your database it can call attention of people.
+
+*Make it clean, make it lean, make it hidden.*
+
+`http://example.com/articles/1` -> `http://example.com/articles/My`
+
+It uses [Hashids](http://hashids.org/ruby) to make it pretty.
+
+## install
+
+Add the following code on your `Gemfile` and run `bundle install`:
+
+```ruby
+gem 'idy'
+```
+
+## Usage
+
+On an `ActiveRecord` model, just add `idy` callback:
+
+```ruby
+class Article < ApplicationRecord
+  idy
+end
+```
+
+Try to call on your model the obfuscated ID:
+
+```ruby
+Article.new(id: 1).idy
+# My
+```
+
+It will build you Rals URL with that ID too:
+
+```ruby
+Article.new(id: 1).to_param
+# localhost:3000/articles/My
+```
+
+## Security
+
+Idy is not for encryption, it is about obfuscation.
+If you want a *unbreakable* hash, it is not for you.
+
+## Collision
+
+To avoid two differents models to generates the same hash for the same ID,
+by default, the class name is used as a [Salt](https://en.wikipedia.org/wiki/Salt_(cryptography).
+
+```ruby
+Article.new(id: 1).idy
+# My
+
+User.new(id: 1).idy
+# ex
+```
+
+## Salt
+
+You can provide you own:
+
+```ruby
+class Article < ApplicationRecord
+  idy salt: 's3cr3t'
+end
+```
+
+```ruby
+Article.new(id: 1).idy
+# 9A
+```
+
+## Find
+
+Since you add the `idy` callback to your model, `find` method will be decorated:
+
+```ruby
+Article.find('My').id
+# 1
+```
+
+Keep in mind that if you have some internal code, that you cannot change,
+using `find`, the hash version of the id, `idy`, will be mandatory to correct find the record.
+
+## Inspiration
+
+It was inpired and improved from:
+
+- [obfuscate_id](https://github.com/namick/obfuscate_id)
+- [hashids_uri](https://github.com/danieldraper/hashids_uri)
+
+## Love it!
+
+Via [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=X8HEP2878NDEG&item_name=idy) or [Gratipay](https://gratipay.com/~wbotelhos). Thanks! (:
