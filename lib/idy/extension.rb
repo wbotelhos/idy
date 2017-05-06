@@ -28,11 +28,21 @@ module Idy
 
         scope = try(:idy?) ? [id].flatten.map { |id| idy_decode(id) } : id
 
-        if scope.compact.blank?
-          raise ActiveRecord::RecordNotFound, "Couldn't find User with 'idy'=#{id.inspect}"
-        end
+        not_found!(id) if scope.compact.blank?
 
         super scope.size == 1 ? scope[0] : scope
+      end
+
+      def findy(hash)
+        find_by id: idy_decode(hash)
+      end
+
+      def findy!(hash)
+        record = find_by(id: idy_decode(hash))
+
+        not_found!(hash) if record.nil?
+
+        record
       end
 
       def idy(options = {})
@@ -79,6 +89,10 @@ module Idy
         Integer id
       rescue
         false
+      end
+
+      def not_found!(hash)
+        raise ActiveRecord::RecordNotFound, "Couldn't find User with 'idy'=#{hash.inspect}"
       end
     end
   end

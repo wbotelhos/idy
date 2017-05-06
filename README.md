@@ -97,6 +97,34 @@ Article.find('My').id
 Keep in mind that if you have some internal code, that you cannot change,
 using `find`, the hash version of the id, `idy`, will be mandatory to correct find the record.
 
+## Findy and Findy!
+
+We encourage you to use this methods and avoid tweak `find` Rails method. As you expect, it will find directly via idy, so a normal integer will be not found, even if it exists on database.
+
+### Findy
+
+The bumpless version returns `nil` when record is not found.
+
+```ruby
+Article.findy('My').id
+# 1
+
+Article.findy 'missing'
+# nil
+```
+
+### Findy!
+
+The bump `!` version raises an error when record is not found.
+
+```ruby
+Article.findy!('My').id
+# 1
+
+Article.findy! 'missing'
+# ActiveRecord::RecordNotFound: Couldn't find Article with 'idy'="missing"
+```
+
 ## Inspiration
 
 It was inpired and improved from:
