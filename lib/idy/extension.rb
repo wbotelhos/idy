@@ -9,10 +9,6 @@ module Idy
         self.class.idy_encode id
       end
 
-      def idy_options
-        self.class.idy_options
-      end
-
       def salt
         self.class.salt
       end
@@ -40,7 +36,7 @@ module Idy
       end
 
       def idy(options = {})
-        @options = options.reverse_merge(salt: idy_default_salt)
+        @idy_options = options.reverse_merge(salt: idy_default_salt)
 
         define_singleton_method(:idy?) { true }
       end
@@ -66,7 +62,7 @@ module Idy
       end
 
       def idy_options
-        @options || { salt: idy_default_salt }
+        @idy_options || { salt: idy_default_salt }
       end
 
       def salt
