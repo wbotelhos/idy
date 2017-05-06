@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    idy (0.1.1)
+    idy (0.1.2)
       hashids (~> 1.0)
       rails (>= 5, < 6)
 
