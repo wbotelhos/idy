@@ -22,17 +22,17 @@ module Idy
 
     module ClassMethods
       def find(*args)
-        query = [args.first].flatten
+        id = args.first
 
-        if try(:idy?)
-          if query.size == 1
-            super idy_decode(query[0].to_s) || query[0]
-          else
-            super [query].flatten.map { |hash| idy_decode hash }
-          end
-        else
-          super [query].flatten.size == 1 ? query[0] : query
+        return super if args.count != 1 || integer?(id)
+
+        scope = try(:idy?) ? [id].flatten.map { |id| idy_decode(id) } : id
+
+        if scope.compact.blank?
+          raise ActiveRecord::RecordNotFound, "Couldn't find User with 'idy'=#{id.inspect}"
         end
+
+        super scope.size == 1 ? scope[0] : scope
       end
 
       def idy(options = {})
@@ -73,6 +73,12 @@ module Idy
 
       def encoder(salt)
         Hashids.new salt.to_s
+      end
+
+      def integer?(id)
+        Integer id
+      rescue
+        false
       end
     end
   end
