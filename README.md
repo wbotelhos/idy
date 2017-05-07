@@ -85,6 +85,25 @@ Article.new(id: 1).idy
 # 9A
 ```
 
+## Idy
+
+As you could see, the method `idy`, returns the hash representation of your ID:
+
+```ruby
+Article.new(id: 1).idy
+# My
+```
+
+If you want get all idys from a collection, just map it:
+
+```ruby
+Article.create
+Article.create
+
+Article.select(:id).map(&:idy)
+# ["My", "aL"]
+```
+
 ## Find
 
 Since you add the `idy` callback to your model, `find` method will be decorated:
