@@ -65,6 +65,15 @@ RSpec.describe Article do
         expect { described_class.find(idy) }.to raise_error ActiveRecord::RecordNotFound, %(Couldn't find User with 'idy'="1a")
       end
     end
+
+    context 'when id is an integer' do
+      let!(:record) { described_class.create id: 1 }
+      let!(:id)     { 1 }
+
+      it 'finds by normal id' do
+        expect(described_class.find(id)).to eq record
+      end
+    end
   end
 
   context 'with idy disabled' do
