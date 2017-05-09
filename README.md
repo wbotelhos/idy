@@ -45,7 +45,7 @@ Article.new(id: 1).idy
 # My
 ```
 
-It will build you Rals URL with that ID too:
+It will build your Rails URL with that ID too:
 
 ```ruby
 Article.new(id: 1).to_param
@@ -60,7 +60,7 @@ If you want a *unbreakable* hash, it is not for you.
 ## Collision
 
 To avoid two differents models to generates the same hash for the same ID,
-by default, the class name is used as a [Salt](https://en.wikipedia.org/wiki/Salt_(cryptography).
+by default, the class name is used as a [Salt](https://en.wikipedia.org/wiki/Salt_cryptography).
 
 ```ruby
 Article.new(id: 1).idy
