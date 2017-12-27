@@ -153,4 +153,4 @@ It was inpired and improved from:
 
 ## Love it!
 
-Via [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=X8HEP2878NDEG&item_name=idy) or [Gratipay](https://gratipay.com/~wbotelhos). Thanks! (:
+Via [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=X8HEP2878NDEG&item_name=idy) or [Gratipay](https://liberapay.com/idy/donate). Thanks! (:
