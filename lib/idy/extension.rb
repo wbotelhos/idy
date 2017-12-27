@@ -21,18 +21,6 @@ module Idy
     end
 
     module ClassMethods
-      def find(*args)
-        id = args.first
-
-        return super if args.count != 1 || integer?(id)
-
-        scope = try(:idy?) ? [id].flatten.map { |id| idy_decode(id) } : id
-
-        not_found!(id) if scope.compact.blank?
-
-        super scope.size == 1 ? scope[0] : scope
-      end
-
       def findy(hash)
         find_by id: idy_decode(hash)
       end
@@ -83,12 +71,6 @@ module Idy
 
       def encoder(salt)
         Hashids.new salt.to_s
-      end
-
-      def integer?(id)
-        Integer id
-      rescue
-        false
       end
 
       def not_found!(hash)
