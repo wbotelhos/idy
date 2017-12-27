@@ -2,9 +2,9 @@
 
 require 'rails_helper'
 
-RSpec.describe '#findy!' do
+RSpec.describe Article, '#findy!' do
   context 'when a hash is given' do
-    context 'and record is found' do
+    context 'when record is found' do
       let!(:record) { Article.create id: 1 }
       let!(:hash)   { 'My' }
 
@@ -13,11 +13,13 @@ RSpec.describe '#findy!' do
       end
     end
 
-    context 'and record is not found' do
+    context 'when record is not found' do
       let!(:hash) { 'My' }
 
       it 'raises' do
-        expect { Article.findy!(hash) }.to raise_error ActiveRecord::RecordNotFound, %(Couldn't find User with 'idy'="My")
+        message = %(Couldn't find User with 'idy'="My")
+
+        expect { Article.findy!(hash) }.to raise_error ActiveRecord::RecordNotFound, message
       end
     end
   end

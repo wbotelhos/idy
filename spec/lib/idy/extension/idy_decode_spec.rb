@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe '#idy_decode' do
+RSpec.describe Article, '#idy_decode' do
   context 'with no given salt' do
     it 'undos the obfuscation of id with default class salt' do
       expect(Article.idy_decode('My')).to eq 1
@@ -18,7 +18,7 @@ RSpec.describe '#idy_decode' do
   end
 
   context 'with salt' do
-    context 'as string' do
+    context 'when is string' do
       let!(:salt) { 'salt' }
 
       it 'undos the obfuscation of id with given salt' do
@@ -26,7 +26,7 @@ RSpec.describe '#idy_decode' do
       end
     end
 
-    context 'as number' do
+    context 'when is number' do
       let!(:salt) { 1 }
 
       it 'undos the obfuscation of id with given salt as string' do

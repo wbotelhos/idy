@@ -9,7 +9,7 @@ RSpec.configure do |config|
     DatabaseCleaner.clean_with :transaction
   end
 
-  config.before :each do
+  config.before do
     DatabaseCleaner.start
   end
 

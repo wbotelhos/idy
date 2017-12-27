@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe '.to_param' do
+RSpec.describe Clean, '.to_param' do
   context 'when object does not acts as idy' do
     subject { Clean.new id: 1 }
 
@@ -32,13 +32,13 @@ RSpec.describe '.to_param' do
       end
 
       context 'when object is not persisted' do
-        context 'and has no id' do
+        context 'when has no id' do
           subject { Article.new }
 
           specify { expect(subject.to_param).to be_nil }
         end
 
-        context 'and has id' do
+        context 'when has id' do
           subject { Article.new id: 1 }
 
           it 'generates a hash' do

@@ -2,8 +2,20 @@ require: rubocop-rspec
 
 inherit_from: .rubocop_todo.yml
 
+AllCops:
+  TargetRubyVersion: 2.5
+
 Rails:
   Enabled: true
+
+Layout/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+
+Layout/SpaceBeforeComma:
+  Enabled: false
+
+Layout/SpaceBeforeFirstArg:
+  Enabled: false
 
 Lint/Debugger:
   Enabled: false
@@ -18,7 +30,7 @@ Metrics/CyclomaticComplexity:
   Enabled: false
 
 Metrics/LineLength:
-  Enabled: false
+  Max: 120
 
 Metrics/MethodLength:
   Enabled: false
@@ -32,8 +44,9 @@ Rails/HasAndBelongsToMany:
 Rails/HttpPositionalArguments:
   Enabled: false
 
-Style/IfUnlessModifier:
-  MaxLineLength: 0
+
+RSpec/FilePath:
+  Enabled: false
 
 Style/PercentLiteralDelimiters:
   PreferredDelimiters:
@@ -43,17 +56,8 @@ Style/PercentLiteralDelimiters:
     '%w': '[]'
     '%W': '[]'
 
-Style/AlignParameters:
-  EnforcedStyle: with_fixed_indentation
-
 Style/Documentation:
   Enabled: false
 
 Style/Encoding:
-  Enabled: false
-
-Style/SpaceBeforeComma:
-  Enabled: false
-
-Style/SpaceBeforeFirstArg:
   Enabled: false

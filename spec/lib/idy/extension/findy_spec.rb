@@ -2,9 +2,9 @@
 
 require 'rails_helper'
 
-RSpec.describe '#findy' do
+RSpec.describe Article, '#findy' do
   context 'when a hash is given' do
-    context 'and record is found' do
+    context 'when record is found' do
       let!(:record) { Article.create id: 1 }
       let!(:hash)   { 'My' }
 
@@ -13,7 +13,7 @@ RSpec.describe '#findy' do
       end
     end
 
-    context 'and record is not found' do
+    context 'when record is not found' do
       let!(:hash) { 'My' }
 
       it 'returns nil' do

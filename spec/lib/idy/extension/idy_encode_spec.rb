@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe '#idy_encode' do
+RSpec.describe Article, '#idy_encode' do
   context 'with no given salt' do
     let!(:model) { Article.new id: 1 }
 
@@ -23,7 +23,7 @@ RSpec.describe '#idy_encode' do
   context 'with salt' do
     let!(:model) { Article.new id: 1 }
 
-    context 'as string' do
+    context 'when is string' do
       let!(:salt) { 'salt' }
 
       it 'obfuscates the id with given salt' do
@@ -31,7 +31,7 @@ RSpec.describe '#idy_encode' do
       end
     end
 
-    context 'as number' do
+    context 'when is number' do
       let!(:salt) { 1 }
 
       it 'obfuscates the id with given salt as string' do
