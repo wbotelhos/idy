@@ -1,3 +1,8 @@
+## v1.0.0
+
+- News
+ - Drops overrided `find` method to avoid find on a hash that looks like a number issue [#1](https://github.com/wbotelhos/idy/issues/1)
+
 ## v0.1.3
 
 - features
