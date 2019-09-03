@@ -1,0 +1,15 @@
+version: '3.7'
+
+volumes:
+  idy_bundle:
+
+services:
+  idy:
+    container_name: idy
+    build: .
+    tty: true
+    volumes:
+      - idy_bundle:/bundle
+      - ${PWD}:/code
+
+
