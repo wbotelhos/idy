@@ -1,3 +1,10 @@
+## v1.1.0
+
+- Updates
+  - Does not restrict Rails version;
+  - Does not restrict Hashids version;
+  - Bump Ruby version to 2.6.4;
+
 ## v1.0.0
 
 - News
