@@ -19,8 +19,8 @@ Gem::Specification.new do |spec|
   spec.test_files  = Dir['spec/**/*']
   spec.version     = Idy::VERSION
 
-  spec.add_dependency 'hashids',      '~> 1.0'
-  spec.add_dependency 'activerecord', '>= 4.2', '< 6'
+  spec.add_dependency 'activerecord'
+  spec.add_dependency 'hashids'
 
   spec.add_development_dependency 'database_cleaner'
   spec.add_development_dependency 'pry-byebug'
