@@ -4,18 +4,18 @@ require 'rails_helper'
 
 RSpec.describe Clean, ':salt' do
   describe '#salt' do
-    before { allow(Clean).to receive(:idy_options).and_return(salt: :salty) }
+    before { allow(described_class).to receive(:idy_options).and_return(salt: :salty) }
 
     it 'fetchs the salt options' do
-      expect(Clean.salt).to eq(:salty)
+      expect(described_class.salt).to eq(:salty)
     end
   end
 
   describe '.salt' do
-    before { allow(Clean).to receive(:salt).and_return :salt }
+    before { allow(described_class).to receive(:salt).and_return :salt }
 
     it 'delegates to class method' do
-      expect(Clean.new.salt).to eq :salt
+      expect(described_class.new.salt).to eq :salt
     end
   end
 end

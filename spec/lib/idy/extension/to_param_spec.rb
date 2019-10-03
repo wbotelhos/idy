@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe Clean, '.to_param' do
   context 'when object does not acts as idy' do
-    subject { Clean.new id: 1 }
+    subject { described_class.new id: 1 }
 
     it 'behaves as default' do
       expect(subject.to_param).to eq '1'

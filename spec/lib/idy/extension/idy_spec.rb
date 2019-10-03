@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe Article, '.idy' do
-  subject { Article.new id: 1 }
+  subject { described_class.new id: 1 }
 
   it 'returns the encoded id' do
     expect(subject.idy).to eq 'My'

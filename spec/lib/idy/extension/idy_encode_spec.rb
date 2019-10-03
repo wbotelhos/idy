@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe Article, '#idy_encode' do
   context 'with no given salt' do
-    let!(:model) { Article.new id: 1 }
+    let!(:model) { described_class.new id: 1 }
 
     it 'obfuscates the id with default class salt' do
       expect(model.class.idy_encode(model.id)).to eq 'My'
@@ -12,7 +12,7 @@ RSpec.describe Article, '#idy_encode' do
   end
 
   context 'with empty salt' do
-    let!(:model) { Article.new id: 1 }
+    let!(:model) { described_class.new id: 1 }
     let!(:salt)  { '' }
 
     it 'obfuscates the id with empty salt' do
@@ -21,7 +21,7 @@ RSpec.describe Article, '#idy_encode' do
   end
 
   context 'with salt' do
-    let!(:model) { Article.new id: 1 }
+    let!(:model) { described_class.new id: 1 }
 
     context 'when is string' do
       let!(:salt) { 'salt' }
@@ -41,7 +41,7 @@ RSpec.describe Article, '#idy_encode' do
   end
 
   context 'with nil id' do
-    let!(:model) { Article.new }
+    let!(:model) { described_class.new }
 
     it 'returns nil' do
       expect(model.class.idy_encode(model.id)).to be_nil
