@@ -47,10 +47,11 @@ module Idy
         alphabet = Array('a'..'z')
 
         indexes = name.downcase.split('').map do |char|
-          alphabet.index(char) + 1
+          index = alphabet.index(char)
+          index ? index + 1 : nil
         end
 
-        indexes.shift(10).join
+        indexes.compact.shift(10).join
       end
 
       def idy_encode(id, salt: self.salt)
