@@ -146,7 +146,7 @@ Article.findy! 'missing'
 
 ## Inspiration
 
-It was inpired and improved from:
+It was inspired and improved from:
 
 - [obfuscate_id](https://github.com/namick/obfuscate_id)
 - [hashids_uri](https://github.com/danieldraper/hashids_uri)
