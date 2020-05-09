@@ -44,7 +44,7 @@ module Idy
       end
 
       def idy_default_salt
-        alphabet = Array('a'..'z') +[":"]
+        alphabet = Array('a'..'z') + [":"]
 
         indexes = name.downcase.split('').map do |char|
           alphabet.index(char) + 1
