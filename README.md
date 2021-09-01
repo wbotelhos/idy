@@ -144,13 +144,23 @@ Article.findy! 'missing'
 # ActiveRecord::RecordNotFound: Couldn't find Article with 'idy'="missing"
 ```
 
+## Functions
+
+You can encode a number manually:
+
+```rb
+Model.idy_encode(idy)
+```
+
+You can decode an idy in case you want to use the ActiveRecord methods with the original ID:
+
+```rb
+Model.idy_decode(idy)
+```
+
 ## Inspiration
 
 It was inspired and improved from:
 
 - [obfuscate_id](https://github.com/namick/obfuscate_id)
 - [hashids_uri](https://github.com/danieldraper/hashids_uri)
-
-## Love it!
-
-Via [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=X8HEP2878NDEG&item_name=idy) or [Gratipay](https://liberapay.com/idy/donate). Thanks! (:
