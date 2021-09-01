@@ -1,0 +1,36 @@
+name: CI
+on: [push]
+
+jobs:
+  build:
+    if: "!contains(github.event.head_commit.message, 'ci skip')"
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        env:
+          POSTGRES_HOST_AUTH_METHOD: trust
+
+        image: postgres:13-alpine
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+
+        ports:
+          - 5432:5432
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Ruby and Bundle Install
+        uses: eregon/use-ruby-action@v1
+
+        with:
+          bundler-cache: true
+
+      - name: Spec
+        env:
+          CI: true
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+          COVERAGE: true
+          MINIMUM_COVERAGE: ${{ secrets.MINIMUM_COVERAGE }}
+
+        run: bundle exec rspec

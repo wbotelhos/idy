@@ -1,6 +1,6 @@
 # Idy
 
-[![Build Status](https://travis-ci.org/wbotelhos/idy.svg)](https://travis-ci.org/wbotelhos/idy)
+[![CI](https://github.com/wbotelhos/idy/workflows/CI/badge.svg)](https://github.com/wbotelhos/idy/actions?query=workflow:CI)
 [![Gem Version](https://badge.fury.io/rb/idy.svg)](https://badge.fury.io/rb/idy)
 
 An ID obfuscator for ActiveRecord.
