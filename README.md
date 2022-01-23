@@ -1,6 +1,6 @@
 # Idy
 
-[![Build Status](https://travis-ci.org/wbotelhos/idy.svg)](https://travis-ci.org/wbotelhos/idy)
+[![CI](https://github.com/wbotelhos/idy/workflows/CI/badge.svg)](https://github.com/wbotelhos/idy/actions?query=workflow:CI)
 [![Gem Version](https://badge.fury.io/rb/idy.svg)](https://badge.fury.io/rb/idy)
 
 An ID obfuscator for ActiveRecord.
@@ -144,13 +144,23 @@ Article.findy! 'missing'
 # ActiveRecord::RecordNotFound: Couldn't find Article with 'idy'="missing"
 ```
 
+## Functions
+
+You can encode a number manually:
+
+```rb
+Model.idy_encode(idy)
+```
+
+You can decode an idy in case you want to use the ActiveRecord methods with the original ID:
+
+```rb
+Model.idy_decode(idy)
+```
+
 ## Inspiration
 
 It was inspired and improved from:
 
 - [obfuscate_id](https://github.com/namick/obfuscate_id)
 - [hashids_uri](https://github.com/danieldraper/hashids_uri)
-
-## Love it!
-
-Via [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=X8HEP2878NDEG&item_name=idy) or [Gratipay](https://liberapay.com/idy/donate). Thanks! (:
