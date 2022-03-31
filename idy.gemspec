@@ -17,6 +17,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'activerecord'
   spec.add_dependency 'hashids'
 
+  spec.add_development_dependency 'codecov'
   spec.add_development_dependency 'database_cleaner'
   spec.add_development_dependency 'pry-byebug'
   spec.add_development_dependency 'rspec-rails'
