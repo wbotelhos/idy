@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Clean, ':salt' do
+RSpec.describe Clean do
   describe '#salt' do
     before { allow(described_class).to receive(:idy_options).and_return(salt: :salty) }
 
