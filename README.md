@@ -151,14 +151,22 @@ Article.findy! 'missing'
 
 You can encode a number manually:
 
-```rb
+```ruby
 Model.idy_encode(idy)
 ```
 
 You can decode an idy in case you want to use the ActiveRecord methods with the original ID:
 
-```rb
+```ruby
 Model.idy_decode(idy)
+```
+
+## Testing
+Check if your model responds to idy method:
+
+### RSpec
+```ruby
+it { is_expected.to respond_to(:idy) }
 ```
 
 ## Inspiration
