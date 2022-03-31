@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
 RSpec.describe Article, '#idy_decode' do
   context 'with no given salt' do
     it 'undos the obfuscation of id with default class salt' do

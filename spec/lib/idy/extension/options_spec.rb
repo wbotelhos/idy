@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
 RSpec.describe Article, '.idy_options' do
   context 'when options is not given' do
     it 'returns a default options with a salt generated based on model name' do

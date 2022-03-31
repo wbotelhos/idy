@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
 RSpec.describe Clean, ':salt' do
   describe '#salt' do
     before { allow(described_class).to receive(:idy_options).and_return(salt: :salty) }

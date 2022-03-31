@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
 RSpec.describe Clean, '.to_param' do
   context 'when object does not acts as idy' do
     subject { described_class.new id: 1 }
