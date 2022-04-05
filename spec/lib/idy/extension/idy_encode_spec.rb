@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
 RSpec.describe Article, '#idy_encode' do
   context 'with no given salt' do
     let!(:model) { described_class.new id: 1 }

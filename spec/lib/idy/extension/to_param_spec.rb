@@ -1,19 +1,15 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
 RSpec.describe Clean, '.to_param' do
   context 'when object does not acts as idy' do
-    subject { described_class.new id: 1 }
-
     it 'behaves as default' do
-      expect(subject.to_param).to eq '1'
+      expect(described_class.new(id: 1).to_param).to eq '1'
     end
   end
 
   context 'when object acts as idy' do
     context 'with no given salt' do
-      let!(:model_1) { Article.new id: 1 }
+      let!(:model_1) { Article.new(id: 1) }
 
       it 'generates a hash' do
         expect(model_1.to_param).to eq 'My'
@@ -33,14 +29,10 @@ RSpec.describe Clean, '.to_param' do
 
       context 'when object is not persisted' do
         context 'when has no id' do
-          subject { Article.new }
-
-          specify { expect(subject.to_param).to be_nil }
+          it { expect(Article.new.to_param).to be_nil }
         end
 
         context 'when has id' do
-          subject { Article.new id: 1 }
-
           it 'generates a hash' do
             expect(model_1.to_param).to eq 'My'
           end

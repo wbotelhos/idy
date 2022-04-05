@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
 RSpec.describe '#idy_default_salt' do
   describe Abcdefghijklm do
     context 'when class name has a big length' do

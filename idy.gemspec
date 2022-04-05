@@ -1,27 +1,23 @@
 # frozen_string_literal: true
 
-lib = File.expand_path('lib', __dir__)
-
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-
-require 'idy/version'
+require_relative 'lib/idy/version'
 
 Gem::Specification.new do |spec|
-  spec.author      = 'Washington Botelho'
-  spec.description = 'An ID obfuscator for ActiveRecord.'
-  spec.email       = 'wbotelhos@gmail.com'
-  spec.files       = Dir['lib/**/*'] + %w[CHANGELOG.md LICENSE README.md]
-  spec.homepage    = 'https://github.com/wbotelhos/idy'
-  spec.license     = 'MIT'
-  spec.name        = 'idy'
-  spec.platform    = Gem::Platform::RUBY
-  spec.summary     = 'An ID obfuscator for ActiveRecord.'
-  spec.test_files  = Dir['spec/**/*']
-  spec.version     = Idy::VERSION
+  spec.author           = 'Washington Botelho'
+  spec.description      = 'An ID obfuscator for ActiveRecord.'
+  spec.email            = 'wbotelhos@gmail.com'
+  spec.extra_rdoc_files = Dir['CHANGELOG.md', 'LICENSE', 'README.md']
+  spec.files            = Dir['lib/**/*']
+  spec.homepage         = 'https://github.com/wbotelhos/idy'
+  spec.license          = 'MIT'
+  spec.name             = 'idy'
+  spec.summary          = 'An ID obfuscator for ActiveRecord.'
+  spec.version          = Idy::VERSION
 
   spec.add_dependency 'activerecord'
   spec.add_dependency 'hashids'
 
+  spec.add_development_dependency 'codecov'
   spec.add_development_dependency 'database_cleaner'
   spec.add_development_dependency 'pry-byebug'
   spec.add_development_dependency 'rspec-rails'
