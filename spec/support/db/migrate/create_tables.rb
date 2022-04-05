@@ -5,6 +5,9 @@ class CreateTables < ActiveRecord::Migration[5.0]
     create_table :abcdefghijklms do |t|
     end
 
+    create_table :namespace_ns_models do |t|
+    end
+
     create_table :articles do |t|
       t.string :title
     end
