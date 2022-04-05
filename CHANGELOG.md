@@ -1,3 +1,16 @@
+## v1.2.0
+
+### Fixes
+
+- Allows namespaced class to be obfuscated. [#10](https://github.com/wbotelhos/idy/pull/10) by [vitobotta](https://github.com/vitobotta)
+
+### Updates
+
+- Adds all previous version on the [Releases page](https://github.com/wbotelhos/idy/releases);
+- Adds coverage via [Codecov](https://app.codecov.io/gh/wbotelhos/idy);
+- Moves the CI to [Github Actions](https://github.com/wbotelhos/idy/actions);
+- Removes spec files from the gem to keep the package smaller;
+
 ## v1.1.0
 
 ### Updates

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    idy (1.1.0)
+    idy (1.2.0)
       activerecord
       hashids
 
