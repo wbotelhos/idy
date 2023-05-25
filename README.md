@@ -3,7 +3,7 @@
 [![CI](https://github.com/wbotelhos/idy/workflows/CI/badge.svg)](https://github.com/wbotelhos/idy/actions)
 [![Gem Version](https://badge.fury.io/rb/idy.svg)](https://badge.fury.io/rb/idy)
 [![Maintainability](https://api.codeclimate.com/v1/badges/f312587b4f126bb13e85/maintainability)](https://codeclimate.com/github/wbotelhos/idy/maintainability)
-[![Coverage](https://codecov.io/gh/wbotelhos/idy/branch/main/graph/badge.svg)](https://codecov.io/gh/wbotelhos/idy)
+[![Coverage](https://codecov.io/gh/wbotelhos/idy/branch/main/graph/badge.svg?token=rKcyNTwHjn)](https://codecov.io/gh/wbotelhos/idy)
 [![Sponsor](https://img.shields.io/badge/sponsor-%3C3-green)](https://www.patreon.com/wbotelhos)
 
 An ID obfuscator for ActiveRecord.
