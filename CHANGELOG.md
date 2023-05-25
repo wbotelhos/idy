@@ -1,3 +1,9 @@
+## v1.2.1
+
+### Fixes
+
+- Fix class name log. [#13](https://github.com/wbotelhos/idy/pull/13) by [rafaeldev](https://github.com/rafaeldev)
+
 ## v1.2.0
 
 ### Fixes
