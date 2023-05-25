@@ -15,7 +15,7 @@ RSpec.describe Article, '#findy!' do
       let!(:hash) { 'My' }
 
       it 'raises' do
-        message = %(Couldn't find User with 'idy'="My")
+        message = %(Couldn't find Article with 'idy'="My")
 
         expect { described_class.findy!(hash) }.to raise_error ActiveRecord::RecordNotFound, message
       end

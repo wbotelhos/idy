@@ -74,7 +74,7 @@ module Idy
       end
 
       def not_found!(hash)
-        raise ActiveRecord::RecordNotFound, "Couldn't find User with 'idy'=#{hash.inspect}"
+        raise ActiveRecord::RecordNotFound, "Couldn't find #{self.name} with 'idy'=#{hash.inspect}"
       end
     end
   end
